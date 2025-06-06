@@ -123,44 +123,6 @@ export const MobileNav = styled.div<{ isOpen?: boolean }>`
   transition: opacity 0.22s cubic-bezier(0.4, 0.5, 0.5, 1),
     transform 0.24s cubic-bezier(0.4, 0.5, 0.5, 1);
 
-  > *:first-child {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 2rem 1.5rem 0 1.5rem;
-    min-height: 72px;
-    box-sizing: border-box;
-  }
-
-  > *:first-child > *:first-child {
-    display: flex;
-    align-items: center;
-    height: 40px;
-    margin: 0;
-    padding: 0;
-  }
-
-  > *:first-child > *:last-child {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2.5rem;
-    color: ${({ theme }) => theme.colors.textPrimary};
-    background: none;
-    border: none;
-    cursor: pointer;
-    outline: none;
-    margin: 0;
-    line-height: 1;
-    height: 40px;
-    width: 40px;
-    transition: color 0.15s;
-    &:active {
-      color: ${({ theme }) => theme.colors.accent};
-    }
-  }
-
   nav {
     width: 100%;
     display: flex;
@@ -168,25 +130,14 @@ export const MobileNav = styled.div<{ isOpen?: boolean }>`
     align-items: center;
     margin-top: 3rem;
     gap: 2.5rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
   }
 
-  a {
-    color: ${({ theme }) => theme.colors.textPrimary};
-    font-size: 1.5rem;
-    font-weight: 500;
-    text-align: center;
-    padding: 0.9rem 2.5rem;
-    border-radius: 32px;
-    transition: background 0.16s, color 0.16s, box-shadow 0.16s;
-    text-decoration: none;
-    box-shadow: none;
-    line-height: 1.2;
-
-    &:hover,
-    &.active {
-      background: ${({ theme }) => theme.colors.accent};
-      color: #fff;
-      box-shadow: 0 4px 18px 0 rgba(99, 102, 241, 0.15);
-    }
+  nav a:first-child {
+    margin-top: 1rem;
+  }
+  nav a:last-child {
+    margin-bottom: 1rem;
   }
 `;
