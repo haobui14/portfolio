@@ -1,13 +1,11 @@
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import Logo from '../../../assets/icons/logo.svg?react';
 
 export const NavigationContainer = styled.nav`
   position: fixed;
   top: 0;
   width: 100%;
-  background: rgba(10, 10, 10, 0.8); // <--- translucent!
-  backdrop-filter: blur(20px); // <--- blur for glass effect
+  background: rgba(10, 10, 10, 0.8);
+  backdrop-filter: blur(20px);
   z-index: 1000;
   padding: 1rem 0;
   transition: all 0.3s ease;
@@ -28,7 +26,7 @@ export const NavInner = styled.div`
   }
 `;
 
-export const LogoContainer = styled(Link)`
+export const Logo = styled.a`
   display: flex;
   align-items: center;
   font-size: 1.5rem;
@@ -49,7 +47,7 @@ export const PageLogo = styled(Logo)`
   display: block;
 `;
 
-export const NavLinks = styled.div`
+export const NavLinks = styled.ul`
   display: flex;
   list-style: none;
   gap: 2rem;
@@ -60,7 +58,7 @@ export const NavLinks = styled.div`
   }
 `;
 
-export const NavLink = styled(Link)`
+export const NavLink = styled.a`
   color: ${({ theme }) => theme.colors.textSecondary};
   text-decoration: none;
   font-size: 20px;
@@ -83,7 +81,7 @@ export const NavLink = styled(Link)`
     width: 0;
     height: 2px;
     background: ${({ theme }) => theme.gradients.primary};
-    transition: width 0.3s ease;
+    /* transition: width 0.3s ease; */
   }
 
   &:hover::after,
@@ -92,7 +90,6 @@ export const NavLink = styled(Link)`
   }
 `;
 
-// Hamburger for mobile
 export const Hamburger = styled.button`
   display: none;
   background: none;
@@ -107,7 +104,6 @@ export const Hamburger = styled.button`
   }
 `;
 
-// MobileNav styled-component for animated hamburger dropdown
 export const MobileNav = styled.div<{ isOpen?: boolean }>`
   position: fixed;
   top: 0;
@@ -118,8 +114,8 @@ export const MobileNav = styled.div<{ isOpen?: boolean }>`
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* background: rgba(18, 18, 18, 0.96); /* Optional: blurred/dark */
-  //backdrop-filter: blur(16px); */
+  background: rgba(10, 10, 10, 0.95);
+  backdrop-filter: blur(20px);
   opacity: ${({ isOpen }) => (isOpen ? 1 : 0)};
   pointer-events: ${({ isOpen }) => (isOpen ? 'auto' : 'none')};
   transform: ${({ isOpen }) =>
@@ -127,7 +123,6 @@ export const MobileNav = styled.div<{ isOpen?: boolean }>`
   transition: opacity 0.22s cubic-bezier(0.4, 0.5, 0.5, 1),
     transform 0.24s cubic-bezier(0.4, 0.5, 0.5, 1);
 
-  /* Header area (logo + hamburger) */
   > *:first-child {
     width: 100%;
     display: flex;
@@ -138,7 +133,6 @@ export const MobileNav = styled.div<{ isOpen?: boolean }>`
     box-sizing: border-box;
   }
 
-  /* Logo in header */
   > *:first-child > *:first-child {
     display: flex;
     align-items: center;
@@ -147,7 +141,6 @@ export const MobileNav = styled.div<{ isOpen?: boolean }>`
     padding: 0;
   }
 
-  /* Hamburger/close icon in header */
   > *:first-child > *:last-child {
     display: flex;
     align-items: center;
@@ -168,8 +161,7 @@ export const MobileNav = styled.div<{ isOpen?: boolean }>`
     }
   }
 
-  /* Nav links wrapper */
-  > *:last-child {
+  nav {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -178,10 +170,9 @@ export const MobileNav = styled.div<{ isOpen?: boolean }>`
     gap: 2.5rem;
   }
 
-  /* Individual link styling */
   a {
     color: ${({ theme }) => theme.colors.textPrimary};
-    font-size: 1.5rem !important;
+    font-size: 1.5rem;
     font-weight: 500;
     text-align: center;
     padding: 0.9rem 2.5rem;

@@ -1,51 +1,48 @@
-export interface Theme {
+export const theme = {
   colors: {
-    primary: string;
-    secondary: string;
-    card: string;
-    textPrimary: string;
-    textSecondary: string;
-    accent: string;
-    accentHover: string;
-  };
-  gradients: {
-    primary: string;
-    text: string;
-  };
-  shadows: {
-    card: string;
-    accent: string;
-  };
-  breakpoints: {
-    mobile: string;
-    tablet: string;
-    desktop: string;
-  };
-}
-
-export const theme: Theme = {
-  colors: {
-    primary: '#0a0a0a',
-    secondary: '#1a1a1a',
-    card: '#111111',
+    bgPrimary: '#0a0a0a',
+    bgSecondary: '#1a1a1a',
+    bgCard: '#111111',
     textPrimary: '#ffffff',
     textSecondary: '#a3a3a3',
     accent: '#6366f1',
     accentHover: '#4f46e5',
+    border: 'rgba(255, 255, 255, 0.1)',
+    primary: '#6366f1',
   },
   gradients: {
     primary: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+    primaryHover: 'linear-gradient(135deg, #5a6fd6 0%, #6a4399 100%)',
     text: 'linear-gradient(135deg, #ffffff 0%, #a3a3a3 100%)',
   },
   shadows: {
-    card: '0 20px 25px -5px rgba(0, 0, 0, 0.4)',
-    accent: '0 25px 35px -5px rgba(99, 102, 241, 0.4)',
+    primary: '0 20px 25px -5px rgba(0, 0, 0, 0.4)',
+    hover: '0 25px 35px -5px rgba(99, 102, 241, 0.4)',
   },
   breakpoints: {
     mobile: '768px',
     tablet: '1024px',
     desktop: '1200px',
   },
-};
+  spacing: {
+    xs: '0.5rem',
+    sm: '1rem',
+    md: '2rem',
+    lg: '3rem',
+    xl: '5rem',
+  },
+  borderRadius: {
+    sm: '15px',
+    md: '20px',
+    lg: '50px',
+  },
+  transitions: {
+    default: 'all 0.3s ease',
+  },
+  zIndex: {
+    navigation: 1000,
+    particles: -1,
+  },
+} as const;
 
-export type ThemeType = typeof theme;
+export type Theme = typeof theme;

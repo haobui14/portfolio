@@ -1,31 +1,28 @@
-import ThemeProvider from './theme/ThemeProvider';
-import { Suspense, lazy } from 'react';
-import { Route, Routes } from 'react-router-dom';
-import { AppContainer } from './App.styles';
+import React from 'react';
+import { ThemeProvider } from 'styled-components';
+import { theme } from './theme/theme';
+import Navigation from './components/layout/Navigation/Navigation';
+import Hero from './components/sections/Hero/Hero';
+import About from './components/sections/About/About';
+import Projects from './components/sections/Projects/Projects';
+import Contact from './components/sections/Contact/Contact';
 import { ParticleBackground } from './components/animation/ParticleBackground';
-import { GlobalStyle } from './theme/GlobalStyle';
+import { GlobalStyle } from './App.styles';
 
-const Navigation = lazy(
-  () => import('./components/layout/Navigation/Navigation')
-);
-
-function App() {
+const App: React.FC = () => {
   return (
-    <ThemeProvider>
+    <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <ParticleBackground
-        particleCount={50}
-        minDuration={10}
-        maxDuration={15}
-        maxDelay={20}
-      />
+      <ParticleBackground />
       <Navigation />
-      <AppContainer>
-        <Suspense fallback={<div>Loading...</div>}></Suspense>
-        <Routes>{/* <Route path='/' element={<Navigation />} /> */}</Routes>
-      </AppContainer>
+      <main>
+        <Hero />
+        <About />
+        <Projects />
+        <Contact />
+      </main>
     </ThemeProvider>
   );
-}
+};
 
 export default App;

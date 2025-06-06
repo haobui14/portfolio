@@ -1,40 +1,83 @@
-import { Fragment, useState } from 'react';
-import { Outlet } from 'react-router-dom';
-
+import { Fragment, useState, useEffect } from 'react';
 import {
-  LogoContainer,
   NavigationContainer,
   NavLinks,
-  PageLogo,
+  Logo,
   NavLink,
   Hamburger,
   MobileNav,
   NavInner,
-} from './navigation.styles';
+} from './Navigation.styles';
 
 const Navigation = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('home');
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = document.querySelectorAll('section');
+      const scrollPosition = window.scrollY + 200;
+
+      sections.forEach((section) => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+          setActiveSection(section.id);
+        }
+      });
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const handleNavClick = (sectionId: string) => {
+    setActiveSection(sectionId);
+    setMobileOpen(false);
+  };
 
   return (
     <Fragment>
       <NavigationContainer>
         <NavInner>
-          <LogoContainer to='/'>
-            <PageLogo />
-          </LogoContainer>
+          <Logo href="#home">HB</Logo>
 
           <NavLinks>
             <li>
-              <NavLink to='/'>Home</NavLink>
+              <NavLink
+                href="#home"
+                className={activeSection === 'home' ? 'active' : ''}
+                onClick={() => handleNavClick('home')}
+              >
+                Home
+              </NavLink>
             </li>
             <li>
-              <NavLink to='/about'>About</NavLink>
+              <NavLink
+                href="#about"
+                className={activeSection === 'about' ? 'active' : ''}
+                onClick={() => handleNavClick('about')}
+              >
+                About
+              </NavLink>
             </li>
             <li>
-              <NavLink to='/projects'>Projects</NavLink>
+              <NavLink
+                href="#projects"
+                className={activeSection === 'projects' ? 'active' : ''}
+                onClick={() => handleNavClick('projects')}
+              >
+                Projects
+              </NavLink>
             </li>
             <li>
-              <NavLink to='/contact'>Contact</NavLink>
+              <NavLink
+                href="#contact"
+                className={activeSection === 'contact' ? 'active' : ''}
+                onClick={() => handleNavClick('contact')}
+              >
+                Contact
+              </NavLink>
             </li>
           </NavLinks>
 
@@ -45,25 +88,40 @@ const Navigation = () => {
             {mobileOpen ? '✖' : '☰'}
           </Hamburger>
         </NavInner>
-        {/* Mobile navigation menu */}
+
         <MobileNav isOpen={mobileOpen}>
           <nav>
-            <NavLink to='/' onClick={() => setMobileOpen(false)}>
+            <NavLink
+              href="#home"
+              className={activeSection === 'home' ? 'active' : ''}
+              onClick={() => handleNavClick('home')}
+            >
               Home
             </NavLink>
-            <NavLink to='/about' onClick={() => setMobileOpen(false)}>
+            <NavLink
+              href="#about"
+              className={activeSection === 'about' ? 'active' : ''}
+              onClick={() => handleNavClick('about')}
+            >
               About
             </NavLink>
-            <NavLink to='/projects' onClick={() => setMobileOpen(false)}>
+            <NavLink
+              href="#projects"
+              className={activeSection === 'projects' ? 'active' : ''}
+              onClick={() => handleNavClick('projects')}
+            >
               Projects
             </NavLink>
-            <NavLink to='/contact' onClick={() => setMobileOpen(false)}>
+            <NavLink
+              href="#contact"
+              className={activeSection === 'contact' ? 'active' : ''}
+              onClick={() => handleNavClick('contact')}
+            >
               Contact
             </NavLink>
           </nav>
         </MobileNav>
       </NavigationContainer>
-      <Outlet />
     </Fragment>
   );
 };
