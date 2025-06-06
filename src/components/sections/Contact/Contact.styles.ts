@@ -46,6 +46,10 @@ export const ContactInfo = styled.div`
 `;
 
 export const ContactItem = styled.a`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: ${({ theme }) => theme.spacing.xs};
   color: ${({ theme }) => theme.colors.textSecondary};
   text-decoration: none;
   padding: ${({ theme }) => theme.spacing.sm};
@@ -58,5 +62,11 @@ export const ContactItem = styled.a`
     color: ${({ theme }) => theme.colors.accent};
     transform: translateY(-2px);
     border-color: ${({ theme }) => theme.colors.accent};
+  }
+
+  svg {
+    display: block;
+    font-size: 1.2em;
+    vertical-align: middle;
   }
 `; 
