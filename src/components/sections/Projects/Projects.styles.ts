@@ -51,13 +51,20 @@ export const ProjectCard = styled.div`
     transition: transform 0.3s ease;
   }
 
-  &:hover::before {
+  &:hover::before,
+  &:focus-within::before {
     transform: scaleX(1);
   }
 
-  &:hover {
+  &:hover,
+  &:focus-within {
     transform: translateY(-5px);
     box-shadow: ${({ theme }) => theme.shadows.primary};
+  }
+
+  &:focus-within {
+    outline: 2px solid ${({ theme }) => theme.colors.accent};
+    outline-offset: 2px;
   }
 `;
 
