@@ -2,6 +2,7 @@ import styled, { keyframes } from 'styled-components';
 
 interface ParticleProps {
   left: number;
+  top: number;
   delay: number;
   duration: number;
 }
@@ -9,18 +10,16 @@ interface ParticleProps {
 // Animations
 const floatAnimation = keyframes`
   0% {
-    transform: translateY(100vh) rotate(0deg);
-    opacity: 0;
+    transform: translateY(0) translateX(0) rotate(0deg);
+    opacity: 0.7;
   }
-  10% {
-    opacity: 0.5;
-  }
-  90% {
-    opacity: 0.5;
+  50% {
+    transform: translateY(-10vh) translateX(2vw) rotate(180deg);
+    opacity: 0.8;
   }
   100% {
-    transform: translateY(-10px) rotate(360deg);
-    opacity: 0;
+    transform: translateY(-20vh) translateX(-1vw) rotate(360deg);
+    opacity: 0.2;
   }
 `;
 
@@ -32,23 +31,28 @@ export const ParticlesContainer = styled.div`
   width: 100%;
   height: 100%;
   pointer-events: none;
-  z-index: -1;
+  z-index: 0;
 `;
 
 export const Particle = styled.div<ParticleProps>`
   position: absolute;
-  width: 4px;
-  height: 4px;
+  width: 5px;
+  height: 5px;
   background: ${({ theme }) => theme.colors.accent};
   border-radius: 50%;
-  opacity: 0.5;
-  animation: ${floatAnimation} 20s infinite linear;
+  opacity: 0.7;
+  box-shadow: 0 0 6px ${({ theme }) => theme.colors.accent}40;
+  animation: ${floatAnimation} 6s infinite linear;
   left: ${({ left }) => left}%;
-  animation-delay: ${({ delay }) => delay}s;
-  animation-duration: ${({ duration }) => duration}s;
+  top: ${({ top }) => top}vh;
+  animation-delay: 0s;
+  animation-duration: ${({ duration }) => Math.max(duration * 0.3, 4)}s;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-    width: 1px;
-    height: 1px;
+    width: 3px;
+    height: 3px;
+    opacity: 0.6;
+    box-shadow: 0 0 4px ${({ theme }) => theme.colors.accent}40;
+    animation-duration: 4s;
   }
 `;

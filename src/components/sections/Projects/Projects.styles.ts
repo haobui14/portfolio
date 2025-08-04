@@ -2,10 +2,25 @@ import styled from 'styled-components';
 
 export const ProjectsSection = styled.section`
   padding: ${({ theme }) => theme.spacing.xl} 0;
+  background: ${({ theme }) => theme.colors.bgPrimary}95;
   max-width: ${({ theme }) => theme.breakpoints.desktop};
   margin: 0 auto;
   padding-left: ${({ theme }) => theme.spacing.md};
   padding-right: ${({ theme }) => theme.spacing.md};
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: ${({ theme }) => `radial-gradient(circle at 40% 60%, ${theme.colors.primary}08 0%, transparent 50%),
+                                 radial-gradient(circle at 60% 40%, ${theme.colors.accent}08 0%, transparent 50%)`};
+    pointer-events: none;
+  }
 `;
 
 export const SectionTitle = styled.h2`
@@ -17,6 +32,8 @@ export const SectionTitle = styled.h2`
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  position: relative;
+  z-index: 1;
 `;
 
 export const ProjectsGrid = styled.div`
@@ -24,9 +41,17 @@ export const ProjectsGrid = styled.div`
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: ${({ theme }) => theme.spacing.md};
   margin-top: ${({ theme }) => theme.spacing.lg};
+  position: relative;
+  z-index: 1;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     grid-template-columns: 1fr;
+    gap: ${({ theme }) => theme.spacing.sm};
+  }
+
+  @media (max-width: 400px) {
+    grid-template-columns: 1fr;
+    gap: ${({ theme }) => theme.spacing.sm};
   }
 `;
 
@@ -35,7 +60,8 @@ export const ProjectCard = styled.div`
   border-radius: ${({ theme }) => theme.borderRadius.md};
   padding: ${({ theme }) => theme.spacing.md};
   transition: ${({ theme }) => theme.transitions.default};
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid ${({ theme }) => theme.colors.border};
+  box-shadow: ${({ theme }) => theme.shadows.card};
   position: relative;
   overflow: hidden;
 
@@ -87,7 +113,7 @@ export const TechStack = styled.div`
 `;
 
 export const TechTag = styled.span`
-  background: rgba(99, 102, 241, 0.2);
+  background: ${({ theme }) => theme.colors.accent}33;
   color: ${({ theme }) => theme.colors.accent};
   padding: 0.3rem 0.8rem;
   border-radius: 15px;
@@ -108,8 +134,18 @@ export const ProjectLink = styled.a`
   display: flex;
   align-items: center;
   gap: ${({ theme }) => theme.spacing.xs};
+  border-radius: 4px;
+  padding: 0.25rem 0.5rem;
+  margin: -0.25rem -0.5rem;
 
-  &:hover {
+  &:hover,
+  &:focus {
     color: ${({ theme }) => theme.colors.accentHover};
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: 2px solid ${({ theme }) => theme.colors.accent};
+    outline-offset: 2px;
   }
 `; 

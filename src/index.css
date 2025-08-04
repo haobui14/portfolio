@@ -1,5 +1,11 @@
+/* Global styles that cannot be handled by styled-components */
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  background: #0a0a0a;
-  min-height: 100vh;
   overflow-x: hidden;
 }
+
+/* Preload font for better performance */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');

@@ -4,8 +4,9 @@ export const NavigationContainer = styled.nav`
   position: fixed;
   top: 0;
   width: 100%;
-  background: rgba(10, 10, 10, 0.8);
+  background: ${({ theme }) => theme.colors.bgPrimary}cc;
   backdrop-filter: blur(20px);
+  border-bottom: 1px solid ${({ theme }) => theme.colors.border};
   z-index: 1000;
   padding: 1rem 0;
   transition: all 0.3s ease;
@@ -81,7 +82,7 @@ export const NavLink = styled.a`
     width: 0;
     height: 2px;
     background: ${({ theme }) => theme.gradients.primary};
-    /* transition: width 0.3s ease; */
+    transition: width 0.3s ease;
   }
 
   &:hover::after,
@@ -98,6 +99,20 @@ export const Hamburger = styled.button`
   font-size: 2rem;
   cursor: pointer;
   z-index: 1200;
+  padding: 0.5rem;
+  border-radius: 4px;
+  transition: ${({ theme }) => theme.transitions.default};
+
+  &:hover,
+  &:focus {
+    color: ${({ theme }) => theme.colors.accent};
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: 2px solid ${({ theme }) => theme.colors.accent};
+    outline-offset: 2px;
+  }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     display: block;
@@ -114,7 +129,7 @@ export const MobileNav = styled.div<{ isOpen?: boolean }>`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: rgba(10, 10, 10, 0.95);
+  background: ${({ theme }) => theme.colors.bgPrimary}f5;
   backdrop-filter: blur(20px);
   opacity: ${({ isOpen }) => (isOpen ? 1 : 0)};
   pointer-events: ${({ isOpen }) => (isOpen ? 'auto' : 'none')};

@@ -34,6 +34,15 @@ const Navigation = () => {
   const handleNavClick = (sectionId: string) => {
     setActiveSection(sectionId);
     setMobileOpen(false);
+    
+    // Smooth scroll to section
+    const element = document.getElementById(sectionId.replace('#', ''));
+    if (element) {
+      element.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
   };
 
   return (
@@ -59,6 +68,24 @@ const Navigation = () => {
                 onClick={() => handleNavClick('about')}
               >
                 About
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                href="#skills"
+                className={activeSection === 'skills' ? 'active' : ''}
+                onClick={() => handleNavClick('skills')}
+              >
+                Skills
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                href="#experience"
+                className={activeSection === 'experience' ? 'active' : ''}
+                onClick={() => handleNavClick('experience')}
+              >
+                Experience
               </NavLink>
             </li>
             <li>
@@ -104,6 +131,20 @@ const Navigation = () => {
               onClick={() => handleNavClick('about')}
             >
               About
+            </NavLink>
+            <NavLink
+              href="#skills"
+              className={activeSection === 'skills' ? 'active' : ''}
+              onClick={() => handleNavClick('skills')}
+            >
+              Skills
+            </NavLink>
+            <NavLink
+              href="#experience"
+              className={activeSection === 'experience' ? 'active' : ''}
+              onClick={() => handleNavClick('experience')}
+            >
+              Experience
             </NavLink>
             <NavLink
               href="#projects"

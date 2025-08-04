@@ -4,6 +4,7 @@ import { Particle, ParticlesContainer } from './ParticleBackground.styles';
 interface ParticleData {
   id: number;
   left: number;
+  top: number;
   delay: number;
   duration: number;
 }
@@ -40,6 +41,7 @@ export const ParticleBackground: FC<ParticleBackgroundProps> = ({
         newParticles.push({
           id: i,
           left: Math.random() * 100,
+          top: Math.random() * 100,
           delay: Math.random() * maxDelay,
           duration: Math.random() * (maxDuration - minDuration) + minDuration,
         });
@@ -55,6 +57,7 @@ export const ParticleBackground: FC<ParticleBackgroundProps> = ({
         <Particle
           key={particle.id}
           left={particle.left}
+          top={particle.top}
           delay={particle.delay}
           duration={particle.duration}
         />

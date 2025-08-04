@@ -38,11 +38,23 @@ const RetryButton = styled.button`
   border-radius: ${({ theme }) => theme.borderRadius.sm};
   cursor: pointer;
   font-weight: 500;
+  font-size: 1rem;
   transition: ${({ theme }) => theme.transitions.default};
 
-  &:hover {
+  &:hover,
+  &:focus {
     transform: translateY(-2px);
     box-shadow: ${({ theme }) => theme.shadows.hover};
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: 2px solid ${({ theme }) => theme.colors.accent};
+    outline-offset: 2px;
+  }
+
+  &:active {
+    transform: translateY(0);
   }
 `;
 
