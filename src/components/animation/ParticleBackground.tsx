@@ -1,5 +1,5 @@
-import { useEffect, useState, FC } from 'react';
-import { Particle, ParticlesContainer } from './ParticleBackground.styles';
+import { useEffect, useState, FC } from "react";
+import { Particle, ParticlesContainer } from "./ParticleBackground.styles";
 
 interface ParticleData {
   id: number;
@@ -27,11 +27,13 @@ export const ParticleBackground: FC<ParticleBackgroundProps> = ({
 
   useEffect(() => {
     const handleResize = () => {
-      setCount(window.innerWidth < 768 ? Math.floor(particleCount / 2) : particleCount);
+      setCount(
+        window.innerWidth < 768 ? Math.floor(particleCount / 2) : particleCount
+      );
     };
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
     handleResize();
-    return () => window.removeEventListener('resize', handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, [particleCount]);
 
   useEffect(() => {

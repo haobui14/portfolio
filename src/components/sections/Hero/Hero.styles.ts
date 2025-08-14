@@ -1,4 +1,4 @@
-import styled, { keyframes } from 'styled-components';
+import styled, { keyframes } from "styled-components";
 
 const fadeInUp = keyframes`
   from {
@@ -24,13 +24,14 @@ export const HeroSection = styled.section`
   overflow: hidden;
 
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: ${({ theme }) => `radial-gradient(circle at 50% 50%, ${theme.colors.primary}08 0%, transparent 70%)`};
+    background: ${({ theme }) =>
+      `radial-gradient(circle at 50% 50%, ${theme.colors.primary}08 0%, transparent 70%)`};
     pointer-events: none;
   }
 `;

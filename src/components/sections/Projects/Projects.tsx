@@ -22,13 +22,6 @@ interface Project {
 
 const projects: Project[] = [
   {
-    title: "NASA Space Missions Dashboard",
-    description:
-      "A full-stack space mission management system featuring a sci-fi themed UI using Arwes framework. Includes mission launch scheduling, historical mission tracking, and real-time mission status updates. Built with a microservices architecture and containerized with Docker.",
-    tech: ["React", "Node.js", "Express", "MongoDB", "Docker", "Arwes"],
-    githubLink: "https://github.com/haobui14/nasa-project.git",
-  },
-  {
     title: "Personal Spending Tracker",
     description:
       "A comprehensive personal finance management application built with React and TypeScript. Features include expense tracking, budget management, data visualization with charts, category-based spending analysis, and AI-powered insights using Gemini AI. Includes secure user authentication with Firebase and real-time data synchronization.",
@@ -42,6 +35,21 @@ const projects: Project[] = [
     ],
     demoLink: "https://trackspending.netlify.app",
     githubLink: "https://github.com/haobui14/spending-tracker",
+  },
+  {
+    title: "Luxury Hotel Management",
+    description:
+      "A full-stack hotel booking platform built with Next.js and TypeScript. Features include room management with Sanity CMS, secure authentication with NextAuth.js, real-time availability tracking, and Stripe payment integration. Includes an admin dashboard with analytics and booking management.",
+    tech: [
+      "Next.js",
+      "TypeScript",
+      "Sanity CMS",
+      "NextAuth.js",
+      "Stripe",
+      "Tailwind CSS",
+    ],
+    demoLink: "https://luxury-hotel-nextjs.netlify.app",
+    githubLink: "https://github.com/haobui14/hotel-management",
   },
   {
     title: "CRWN Clothing E-commerce",
@@ -59,21 +67,6 @@ const projects: Project[] = [
     githubLink: "https://github.com/haobui14/crwn-clothing-new.git",
   },
   {
-    title: "Hotel Management System",
-    description:
-      "A full-stack hotel booking platform built with Next.js and TypeScript. Features include room management with Sanity CMS, secure authentication with NextAuth.js, real-time availability tracking, and Stripe payment integration. Includes an admin dashboard with analytics and booking management.",
-    tech: [
-      "Next.js",
-      "TypeScript",
-      "Sanity CMS",
-      "NextAuth.js",
-      "Stripe",
-      "Tailwind CSS",
-    ],
-    demoLink: "https://main--hotel-management-next.netlify.app",
-    githubLink: "https://github.com/haobui14/hotel-management",
-  },
-  {
     title: "Pathfinding Algorithm Visualizer",
     description:
       "An interactive visualizer for pathfinding algorithms and maze generation, built with React, TypeScript, and Vite. Users can visualize algorithms like A*, Dijkstra, and BFS/DFS on customizable grids, and generate mazes to test algorithm performance.",
@@ -81,6 +74,13 @@ const projects: Project[] = [
     demoLink: "https://pathfinding-visualizer-maze.netlify.app",
     githubLink:
       "https://github.com/haobui14/pathfinding-algorithm-visualizer-maze.git",
+  },
+  {
+    title: "NASA Space Missions Dashboard",
+    description:
+      "A full-stack space mission management system featuring a sci-fi themed UI using Arwes framework. Includes mission launch scheduling, historical mission tracking, and real-time mission status updates. Built with a microservices architecture and containerized with Docker.",
+    tech: ["React", "Node.js", "Express", "MongoDB", "Docker", "Arwes"],
+    githubLink: "https://github.com/haobui14/nasa-project.git",
   },
 ];
 

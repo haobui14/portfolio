@@ -1,5 +1,5 @@
-import { useEffect, useRef } from 'react';
-import { useInView, useAnimation } from 'framer-motion';
+import { useEffect, useRef } from "react";
+import { useInView, useAnimation } from "framer-motion";
 
 export const useScrollAnimation = (threshold = 0.1) => {
   const ref = useRef(null);
@@ -8,7 +8,7 @@ export const useScrollAnimation = (threshold = 0.1) => {
 
   useEffect(() => {
     if (isInView) {
-      controls.start('visible');
+      controls.start("visible");
     }
   }, [isInView, controls]);
 
@@ -22,7 +22,7 @@ export const fadeInUp = {
     y: 0,
     transition: {
       duration: 0.6,
-      ease: 'easeOut',
+      ease: "easeOut",
     },
   },
 };
@@ -34,7 +34,7 @@ export const fadeInLeft = {
     x: 0,
     transition: {
       duration: 0.6,
-      ease: 'easeOut',
+      ease: "easeOut",
     },
   },
 };
@@ -46,7 +46,7 @@ export const fadeInRight = {
     x: 0,
     transition: {
       duration: 0.6,
-      ease: 'easeOut',
+      ease: "easeOut",
     },
   },
 };
@@ -67,7 +67,7 @@ export const scaleIn = {
     scale: 1,
     transition: {
       duration: 0.5,
-      ease: 'easeOut',
+      ease: "easeOut",
     },
   },
 };

@@ -1,5 +1,5 @@
-import React, { Component, ErrorInfo, ReactNode } from 'react';
-import styled from 'styled-components';
+import React, { Component, ErrorInfo, ReactNode } from "react";
+import styled from "styled-components";
 
 interface Props {
   children: ReactNode;
@@ -68,7 +68,7 @@ class ErrorBoundary extends Component<Props, State> {
   }
 
   public componentDidCatch(error: Error, errorInfo: ErrorInfo) {
-    console.error('Uncaught error:', error, errorInfo);
+    console.error("Uncaught error:", error, errorInfo);
   }
 
   private handleRetry = () => {
@@ -81,11 +81,10 @@ class ErrorBoundary extends Component<Props, State> {
         <ErrorContainer>
           <ErrorTitle>Oops! Something went wrong</ErrorTitle>
           <ErrorMessage>
-            We're sorry, but something unexpected happened. Please try refreshing the page.
+            We're sorry, but something unexpected happened. Please try
+            refreshing the page.
           </ErrorMessage>
-          <RetryButton onClick={this.handleRetry}>
-            Try Again
-          </RetryButton>
+          <RetryButton onClick={this.handleRetry}>Try Again</RetryButton>
         </ErrorContainer>
       );
     }

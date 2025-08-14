@@ -1,5 +1,5 @@
-import React from 'react';
-import styled, { keyframes } from 'styled-components';
+import React from "react";
+import styled, { keyframes } from "styled-components";
 
 const spin = keyframes`
   0% { transform: rotate(0deg); }
@@ -33,7 +33,7 @@ interface LoadingProps {
   text?: string;
 }
 
-const Loading: React.FC<LoadingProps> = ({ text = 'Loading...' }) => {
+const Loading: React.FC<LoadingProps> = ({ text = "Loading..." }) => {
   return (
     <LoadingContainer>
       <Spinner />

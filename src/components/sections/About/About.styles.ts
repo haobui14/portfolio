@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const AboutSection = styled.section`
   padding: ${({ theme }) => theme.spacing.xl} ${({ theme }) => theme.spacing.lg};
@@ -11,20 +11,22 @@ export const AboutSection = styled.section`
   overflow: hidden;
 
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: ${({ theme }) => `radial-gradient(circle at 30% 70%, ${theme.colors.primary}12 0%, transparent 50%),
+    background: ${({
+      theme,
+    }) => `radial-gradient(circle at 30% 70%, ${theme.colors.primary}12 0%, transparent 50%),
                                  radial-gradient(circle at 70% 30%, ${theme.colors.accent}12 0%, transparent 50%)`};
     pointer-events: none;
   }
 `;
 
 export const SectionTitle = styled.h2`
-  font-size: ${({ theme }) => theme.typography.fontSizes['3xl']};
+  font-size: ${({ theme }) => theme.typography.fontSizes["3xl"]};
   font-weight: 700;
   text-align: center;
   margin-bottom: ${({ theme }) => theme.spacing.xl};
@@ -36,7 +38,7 @@ export const SectionTitle = styled.h2`
   z-index: 1;
 
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     bottom: -${({ theme }) => theme.spacing.sm};
     left: 50%;
@@ -120,4 +122,4 @@ export const SkillIcon = styled.div`
     width: 1em;
     height: 1em;
   }
-`; 
+`;

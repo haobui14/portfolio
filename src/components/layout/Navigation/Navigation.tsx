@@ -1,4 +1,4 @@
-import { Fragment, useState, useEffect } from 'react';
+import { Fragment, useState, useEffect } from "react";
 import {
   NavigationContainer,
   NavLinks,
@@ -7,40 +7,43 @@ import {
   Hamburger,
   MobileNav,
   NavInner,
-} from './Navigation.styles';
+} from "./Navigation.styles";
 
 const Navigation = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('home');
+  const [activeSection, setActiveSection] = useState("home");
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = document.querySelectorAll('section');
+      const sections = document.querySelectorAll("section");
       const scrollPosition = window.scrollY + 200;
 
       sections.forEach((section) => {
         const sectionTop = section.offsetTop;
         const sectionHeight = section.clientHeight;
-        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+        if (
+          scrollPosition >= sectionTop &&
+          scrollPosition < sectionTop + sectionHeight
+        ) {
           setActiveSection(section.id);
         }
       });
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const handleNavClick = (sectionId: string) => {
     setActiveSection(sectionId);
     setMobileOpen(false);
-    
+
     // Smooth scroll to section
-    const element = document.getElementById(sectionId.replace('#', ''));
+    const element = document.getElementById(sectionId.replace("#", ""));
     if (element) {
-      element.scrollIntoView({ 
-        behavior: 'smooth',
-        block: 'start'
+      element.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
       });
     }
   };
@@ -55,8 +58,8 @@ const Navigation = () => {
             <li>
               <NavLink
                 href="#home"
-                className={activeSection === 'home' ? 'active' : ''}
-                onClick={() => handleNavClick('home')}
+                className={activeSection === "home" ? "active" : ""}
+                onClick={() => handleNavClick("home")}
               >
                 Home
               </NavLink>
@@ -64,8 +67,8 @@ const Navigation = () => {
             <li>
               <NavLink
                 href="#about"
-                className={activeSection === 'about' ? 'active' : ''}
-                onClick={() => handleNavClick('about')}
+                className={activeSection === "about" ? "active" : ""}
+                onClick={() => handleNavClick("about")}
               >
                 About
               </NavLink>
@@ -73,8 +76,8 @@ const Navigation = () => {
             <li>
               <NavLink
                 href="#skills"
-                className={activeSection === 'skills' ? 'active' : ''}
-                onClick={() => handleNavClick('skills')}
+                className={activeSection === "skills" ? "active" : ""}
+                onClick={() => handleNavClick("skills")}
               >
                 Skills
               </NavLink>
@@ -82,8 +85,8 @@ const Navigation = () => {
             <li>
               <NavLink
                 href="#experience"
-                className={activeSection === 'experience' ? 'active' : ''}
-                onClick={() => handleNavClick('experience')}
+                className={activeSection === "experience" ? "active" : ""}
+                onClick={() => handleNavClick("experience")}
               >
                 Experience
               </NavLink>
@@ -91,8 +94,8 @@ const Navigation = () => {
             <li>
               <NavLink
                 href="#projects"
-                className={activeSection === 'projects' ? 'active' : ''}
-                onClick={() => handleNavClick('projects')}
+                className={activeSection === "projects" ? "active" : ""}
+                onClick={() => handleNavClick("projects")}
               >
                 Projects
               </NavLink>
@@ -100,8 +103,8 @@ const Navigation = () => {
             <li>
               <NavLink
                 href="#contact"
-                className={activeSection === 'contact' ? 'active' : ''}
-                onClick={() => handleNavClick('contact')}
+                className={activeSection === "contact" ? "active" : ""}
+                onClick={() => handleNavClick("contact")}
               >
                 Contact
               </NavLink>
@@ -109,10 +112,10 @@ const Navigation = () => {
           </NavLinks>
 
           <Hamburger
-            aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
+            aria-label={mobileOpen ? "Close menu" : "Open menu"}
             onClick={() => setMobileOpen((v) => !v)}
           >
-            {mobileOpen ? '✖' : '☰'}
+            {mobileOpen ? "✖" : "☰"}
           </Hamburger>
         </NavInner>
 
@@ -120,43 +123,43 @@ const Navigation = () => {
           <nav>
             <NavLink
               href="#home"
-              className={activeSection === 'home' ? 'active' : ''}
-              onClick={() => handleNavClick('home')}
+              className={activeSection === "home" ? "active" : ""}
+              onClick={() => handleNavClick("home")}
             >
               Home
             </NavLink>
             <NavLink
               href="#about"
-              className={activeSection === 'about' ? 'active' : ''}
-              onClick={() => handleNavClick('about')}
+              className={activeSection === "about" ? "active" : ""}
+              onClick={() => handleNavClick("about")}
             >
               About
             </NavLink>
             <NavLink
               href="#skills"
-              className={activeSection === 'skills' ? 'active' : ''}
-              onClick={() => handleNavClick('skills')}
+              className={activeSection === "skills" ? "active" : ""}
+              onClick={() => handleNavClick("skills")}
             >
               Skills
             </NavLink>
             <NavLink
               href="#experience"
-              className={activeSection === 'experience' ? 'active' : ''}
-              onClick={() => handleNavClick('experience')}
+              className={activeSection === "experience" ? "active" : ""}
+              onClick={() => handleNavClick("experience")}
             >
               Experience
             </NavLink>
             <NavLink
               href="#projects"
-              className={activeSection === 'projects' ? 'active' : ''}
-              onClick={() => handleNavClick('projects')}
+              className={activeSection === "projects" ? "active" : ""}
+              onClick={() => handleNavClick("projects")}
             >
               Projects
             </NavLink>
             <NavLink
               href="#contact"
-              className={activeSection === 'contact' ? 'active' : ''}
-              onClick={() => handleNavClick('contact')}
+              className={activeSection === "contact" ? "active" : ""}
+              onClick={() => handleNavClick("contact")}
             >
               Contact
             </NavLink>

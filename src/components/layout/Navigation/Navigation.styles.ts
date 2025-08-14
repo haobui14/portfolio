@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const NavigationContainer = styled.nav`
   position: fixed;
@@ -63,7 +63,7 @@ export const NavLink = styled.a`
   color: ${({ theme }) => theme.colors.textSecondary};
   text-decoration: none;
   font-size: 20px;
-  font-family: 'Inter', 'Roboto', Arial, sans-serif;
+  font-family: "Inter", "Roboto", Arial, sans-serif;
   font-weight: 400;
   position: relative;
   padding: 0 0 5px 0;
@@ -75,7 +75,7 @@ export const NavLink = styled.a`
   }
 
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     left: 0;
     bottom: -5px;
@@ -132,9 +132,9 @@ export const MobileNav = styled.div<{ isOpen?: boolean }>`
   background: ${({ theme }) => theme.colors.bgPrimary}f5;
   backdrop-filter: blur(20px);
   opacity: ${({ isOpen }) => (isOpen ? 1 : 0)};
-  pointer-events: ${({ isOpen }) => (isOpen ? 'auto' : 'none')};
+  pointer-events: ${({ isOpen }) => (isOpen ? "auto" : "none")};
   transform: ${({ isOpen }) =>
-    isOpen ? 'translateY(0)' : 'translateY(-16px) scaleY(0.97)'};
+    isOpen ? "translateY(0)" : "translateY(-16px) scaleY(0.97)"};
   transition: opacity 0.22s cubic-bezier(0.4, 0.5, 0.5, 1),
     transform 0.24s cubic-bezier(0.4, 0.5, 0.5, 1);
 
