@@ -16,7 +16,7 @@ import {
 
 const experienceData = [
   {
-    title: "Software Engineer (Contract)",
+    title: "Software Engineer",
     company: "AM Specialty Insurance Group",
     period: "Mar 2025 - Present",
     description:

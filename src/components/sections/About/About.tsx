@@ -28,12 +28,12 @@ const About: React.FC = () => {
               I'm a passionate Software Engineer with{" "}
               <strong>3+ years of experience</strong> building scalable web
               applications and enterprise solutions. Currently working as a
-              Contract Software Engineer at{" "}
-              <strong>AM Specialty Insurance Group</strong> since March 2025, I
-              specialize in full-stack development using React.js, Next.js,
-              Node.js, MongoDB, and Python. My expertise spans from e-commerce
-              platforms to insurance claims management systems, with a focus on
-              secure, scalable architectures and modern CI/CD practices.
+              Software Engineer at <strong>AM Specialty Insurance Group</strong>{" "}
+              since March 2025, I specialize in full-stack development using
+              React.js, Next.js, Node.js, MongoDB, and Python. My expertise
+              spans from e-commerce platforms to insurance claims management
+              systems, with a focus on secure, scalable architectures and modern
+              CI/CD practices.
             </motion.p>
             <motion.p
               initial={{ opacity: 0, x: -30 }}

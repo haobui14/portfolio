@@ -22,6 +22,21 @@ interface Project {
 
 const projects: Project[] = [
   {
+    title: "Xianxia Cultivation RPG",
+    description:
+      "An immersive AI-powered Xianxia cultivation RPG game built with Next.js and TypeScript. Features include AI-driven dynamic storytelling using Claude/GPT, comprehensive cultivation system with dual paths (Qi & Body), skill progression with experience and leveling, sect membership system, turn-based combat with strategic elements, and region-based world exploration. Includes PWA support for offline play and Supabase for real-time data persistence.",
+    tech: [
+      "Next.js",
+      "TypeScript",
+      "Claude AI",
+      "Supabase",
+      "Tailwind CSS",
+      "PWA",
+    ],
+    demoLink: "https://xianxia-rpg.netlify.app",
+    githubLink: "https://github.com/haobui14/xianxia-rpg",
+  },
+  {
     title: "Personal Spending Tracker",
     description:
       "A comprehensive personal finance management application built with React and TypeScript. Features include expense tracking, budget management, data visualization with charts, category-based spending analysis, and AI-powered insights using Gemini AI. Includes secure user authentication with Firebase and real-time data synchronization.",
