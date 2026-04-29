@@ -23,10 +23,18 @@ interface Project {
 
 const projects: Project[] = [
   {
+    title: "Truyen EPUB Audio",
+    description:
+      "A full-stack app for reading EPUB novels with synchronized audio playback. Next.js frontend on Vercel, Python backend on Railway, and Supabase (PostgreSQL) for database and auth. Wrapped with Capacitor to ship a native Android build from the same web codebase.",
+    tech: ["Next.js", "TypeScript", "Python", "Supabase", "Capacitor", "Railway", "Vercel"],
+    demoLink: "https://truyen-epub-audio.vercel.app/",
+    githubLink: "https://github.com/haobui14/truyen-epub-audio",
+  },
+  {
     title: "Xianxia Cultivation RPG",
     description:
-      "An immersive AI-powered cultivation RPG built with Next.js. Features dynamic AI storytelling via Claude/GPT, dual-path cultivation (Qi & Body), turn-based combat, sect membership, and region exploration. PWA support and Supabase persistence.",
-    tech: ["Next.js", "TypeScript", "Claude AI", "Supabase", "Tailwind", "PWA"],
+      "An immersive AI-powered cultivation RPG built with Next.js. Features dynamic GPT-driven storytelling, dual-path cultivation (Qi & Body), turn-based combat, sect membership, and region exploration. PWA support and Supabase persistence.",
+    tech: ["Next.js", "TypeScript", "GPT", "Supabase", "Tailwind", "PWA"],
     demoLink: "https://xianxia-rpg.netlify.app",
     githubLink: "https://github.com/haobui14/xianxia-rpg",
   },
