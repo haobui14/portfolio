@@ -115,13 +115,21 @@ export const ProjectLink = styled.a`
   text-decoration: none;
   font-weight: 500;
   font-size: 0.85rem;
-  transition: color 0.2s ease, border-color 0.2s ease;
+  transition: color 0.2s ease, border-color 0.2s ease, scale 0.15s ease;
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  padding: 0.4rem 0.75rem;
+  padding: 0.5rem 0.875rem;
   border-radius: 6px;
   border: 1px solid ${({ theme }) => theme.colors.border};
+  position: relative;
+
+  /* extend hit area to >= 40x40 */
+  &::before {
+    content: "";
+    position: absolute;
+    inset: -4px;
+  }
 
   svg {
     width: 0.95rem;
@@ -133,6 +141,10 @@ export const ProjectLink = styled.a`
     color: ${({ theme }) => theme.colors.accent};
     border-color: ${({ theme }) => theme.colors.accent};
     outline: none;
+  }
+
+  &:active {
+    scale: 0.96;
   }
 
   &:focus-visible {

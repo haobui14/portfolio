@@ -1,6 +1,15 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
 
+export const IconWrap = styled.span`
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1em;
+  height: 1em;
+  position: relative;
+`;
+
 export const ToggleButton = styled(motion.button)`
   position: fixed;
   bottom: 1.5rem;

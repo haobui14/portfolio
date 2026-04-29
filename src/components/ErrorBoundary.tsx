@@ -31,20 +31,21 @@ const ErrorMessage = styled.p`
 `;
 
 const RetryButton = styled.button`
-  background: ${({ theme }) => theme.gradients.primary};
-  color: white;
-  border: none;
-  padding: ${({ theme }) => `${theme.spacing.sm} ${theme.spacing.md}`};
-  border-radius: ${({ theme }) => theme.borderRadius.sm};
+  background: #047857;
+  color: #ffffff;
+  border: 1px solid #047857;
+  padding: 0.625rem 1.25rem;
+  border-radius: 8px;
   cursor: pointer;
-  font-weight: 500;
-  font-size: 1rem;
-  transition: ${({ theme }) => theme.transitions.default};
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: background 0.2s ease, transform 0.2s ease;
 
   &:hover,
   &:focus {
-    transform: translateY(-2px);
-    box-shadow: ${({ theme }) => theme.shadows.hover};
+    background: #065f46;
+    border-color: #065f46;
+    transform: translateY(-1px);
     outline: none;
   }
 

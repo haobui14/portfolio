@@ -1,6 +1,7 @@
 import React from "react";
 import { ThemeProvider as StyledThemeProvider } from "styled-components";
-import { ThemeContextProvider, useTheme } from "./contexts/ThemeContext";
+import { ThemeContextProvider } from "./contexts/ThemeContext";
+import { useTheme } from "./contexts/useTheme";
 import { getTheme } from "./theme/theme";
 import Navigation from "./components/layout/Navigation/Navigation";
 import Hero from "./components/sections/Hero/Hero";

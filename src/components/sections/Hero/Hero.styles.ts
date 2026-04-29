@@ -119,9 +119,13 @@ const ctaBase = `
   font-size: 0.95rem;
   font-weight: 600;
   border-radius: 8px;
-  transition: all 0.2s ease;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease, scale 0.15s ease;
   cursor: pointer;
   font-family: inherit;
+
+  &:active {
+    scale: 0.96;
+  }
 `;
 
 export const PrimaryCta = styled.button`

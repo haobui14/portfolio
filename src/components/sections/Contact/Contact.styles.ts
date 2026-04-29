@@ -73,7 +73,7 @@ export const ContactItem = styled.a`
   border: 1px solid ${({ theme }) => theme.colors.border};
   font-size: 0.9375rem;
   font-weight: 500;
-  transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+  transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease, scale 0.15s ease;
 
   &:hover,
   &:focus {
@@ -81,6 +81,10 @@ export const ContactItem = styled.a`
     border-color: ${({ theme }) => theme.colors.accent};
     background: ${({ theme }) => theme.colors.accent}10;
     outline: none;
+  }
+
+  &:active {
+    scale: 0.96;
   }
 
   &:focus-visible {

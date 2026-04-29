@@ -23,6 +23,14 @@ export const GlobalStyle = createGlobalStyle`
     text-rendering: optimizeLegibility;
   }
 
+  h1, h2, h3 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
   a {
     color: inherit;
     text-decoration: none;
@@ -73,5 +81,16 @@ export const GlobalStyle = createGlobalStyle`
   * {
     scrollbar-width: thin;
     scrollbar-color: ${({ theme }) => theme.colors.accent} ${({ theme }) => theme.colors.bgSecondary};
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
   }
 `;

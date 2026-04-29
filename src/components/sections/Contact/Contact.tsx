@@ -11,9 +11,9 @@ import { MdEmail } from 'react-icons/md';
 import { FaLinkedin, FaGithub } from 'react-icons/fa';
 
 const contactLinks = [
-  { icon: <MdEmail />, label: 'Email', href: 'mailto:haobp.dev@gmail.com' },
-  { icon: <FaLinkedin />, label: 'LinkedIn', href: 'https://www.linkedin.com/in/hao-bui1401/' },
-  { icon: <FaGithub />, label: 'GitHub', href: 'https://github.com/haobui14' },
+  { icon: <MdEmail />, label: 'Email', href: 'mailto:haobp.dev@gmail.com', external: false },
+  { icon: <FaLinkedin />, label: 'LinkedIn', href: 'https://www.linkedin.com/in/hao-bui1401/', external: true },
+  { icon: <FaGithub />, label: 'GitHub', href: 'https://github.com/haobui14', external: true },
 ];
 
 const Contact: React.FC = () => {
@@ -27,7 +27,14 @@ const Contact: React.FC = () => {
         </ContactText>
         <ContactInfo>
           {contactLinks.map((link) => (
-            <ContactItem key={link.label} href={link.href} target="_blank" rel="noopener noreferrer">
+            <ContactItem
+              key={link.label}
+              href={link.href}
+              {...(link.external && {
+                target: '_blank',
+                rel: 'noopener noreferrer',
+              })}
+            >
               {link.icon} {link.label}
             </ContactItem>
           ))}

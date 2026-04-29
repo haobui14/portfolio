@@ -40,18 +40,12 @@ export const Logo = styled.a`
   padding: 0.25rem 0.5rem;
   border: 1px solid ${({ theme }) => theme.colors.border};
   border-radius: 6px;
-  transition: ${({ theme }) => theme.transitions.fast};
+  transition: border-color 0.15s ease, background 0.15s ease;
 
   &:hover {
     border-color: ${({ theme }) => theme.colors.accent};
     background: ${({ theme }) => theme.colors.accent}10;
   }
-`;
-
-export const PageLogo = styled(Logo)`
-  height: 40px;
-  width: auto;
-  display: block;
 `;
 
 export const NavLinks = styled.ul`
@@ -72,7 +66,7 @@ export const NavLink = styled.a`
   font-family: "Inter", "Roboto", Arial, sans-serif;
   font-weight: 500;
   position: relative;
-  padding: 0.5rem 0.25rem;
+  padding: 0.75rem 0.5rem;
   transition: color 0.2s ease;
 
   &:hover,
@@ -119,7 +113,15 @@ export const Hamburger = styled.button`
   z-index: 1200;
   padding: 0.4rem 0.6rem;
   border-radius: 6px;
-  transition: ${({ theme }) => theme.transitions.fast};
+  transition: color 0.15s ease, border-color 0.15s ease;
+  position: relative;
+
+  /* extend hit area to >= 40x40 */
+  &::before {
+    content: "";
+    position: absolute;
+    inset: -8px;
+  }
 
   &:hover,
   &:focus {

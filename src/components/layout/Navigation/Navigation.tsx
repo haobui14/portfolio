@@ -1,4 +1,5 @@
 import { Fragment, useState, useEffect } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import { FiMenu, FiX } from "react-icons/fi";
 import {
   NavigationContainer,
@@ -116,7 +117,18 @@ const Navigation = () => {
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
             onClick={() => setMobileOpen((v) => !v)}
           >
-            {mobileOpen ? <FiX /> : <FiMenu />}
+            <AnimatePresence mode="wait" initial={false}>
+              <motion.span
+                key={mobileOpen ? "close" : "open"}
+                initial={{ opacity: 0, scale: 0.25, filter: "blur(4px)" }}
+                animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+                exit={{ opacity: 0, scale: 0.25, filter: "blur(4px)" }}
+                transition={{ type: "spring", duration: 0.3, bounce: 0 }}
+                style={{ display: "inline-flex" }}
+              >
+                {mobileOpen ? <FiX /> : <FiMenu />}
+              </motion.span>
+            </AnimatePresence>
           </Hamburger>
         </NavInner>
 
