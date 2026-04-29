@@ -3,47 +3,39 @@ import { motion } from "framer-motion";
 
 export const ExperienceSection = styled.section`
   padding: ${({ theme }) => theme.spacing.xl} 0;
-  background: ${({ theme }) => theme.colors.bgSecondary}95;
+  background: ${({ theme }) => theme.colors.bgSecondary};
   border-top: 1px solid ${({ theme }) => theme.colors.border};
   border-bottom: 1px solid ${({ theme }) => theme.colors.border};
   position: relative;
-  overflow: hidden;
-
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: ${({
-      theme,
-    }) => `radial-gradient(circle at 20% 80%, ${theme.colors.primary}12 0%, transparent 50%),
-                                 radial-gradient(circle at 80% 20%, ${theme.colors.accent}12 0%, transparent 50%)`};
-    pointer-events: none;
-  }
 `;
 
 export const SectionTitle = styled.h2`
-  font-size: 2.5rem;
+  font-size: clamp(2rem, 4vw, 2.5rem);
+  font-weight: 700;
   text-align: center;
-  margin-bottom: ${({ theme }) => theme.spacing.xl};
-  background: ${({ theme }) => theme.gradients.text};
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  margin-bottom: ${({ theme }) => theme.spacing.lg};
+  color: ${({ theme }) => theme.colors.textPrimary};
+  letter-spacing: -0.02em;
   position: relative;
   z-index: 1;
+
+  &::after {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 2px;
+    background: ${({ theme }) => theme.colors.accent};
+    margin: ${({ theme }) => theme.spacing.sm} auto 0;
+    border-radius: 2px;
+  }
 `;
 
 export const TimelineContainer = styled.div`
-  max-width: 800px;
+  max-width: 880px;
   margin: 0 auto;
   position: relative;
   z-index: 1;
-  position: relative;
-  padding-left: ${({ theme }) => theme.spacing.md};
-  padding-right: ${({ theme }) => theme.spacing.md};
+  padding: 0 ${({ theme }) => theme.spacing.md};
 
   &::before {
     content: "";
@@ -51,8 +43,14 @@ export const TimelineContainer = styled.div`
     left: 50%;
     top: 0;
     height: 100%;
-    width: 2px;
-    background: ${({ theme }) => theme.gradients.primary};
+    width: 1px;
+    background: linear-gradient(
+      to bottom,
+      transparent 0%,
+      ${({ theme }) => theme.colors.accent}50 10%,
+      ${({ theme }) => theme.colors.accent}50 90%,
+      transparent 100%
+    );
     transform: translateX(-50%);
 
     @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
@@ -64,7 +62,7 @@ export const TimelineContainer = styled.div`
 export const TimelineItem = styled(motion.div)<{ isLeft?: boolean }>`
   display: flex;
   justify-content: ${({ isLeft }) => (isLeft ? "flex-end" : "flex-start")};
-  padding: ${({ theme }) => theme.spacing.md} 0;
+  padding: ${({ theme }) => theme.spacing.sm} 0;
   position: relative;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
@@ -75,41 +73,20 @@ export const TimelineItem = styled(motion.div)<{ isLeft?: boolean }>`
 
 export const TimelineContent = styled.div<{ isLeft?: boolean }>`
   background: ${({ theme }) => theme.colors.bgCard};
-  padding: ${({ theme }) => theme.spacing.md};
+  padding: 1.25rem 1.5rem;
   border-radius: ${({ theme }) => theme.borderRadius.md};
-  width: 45%;
+  width: 46%;
   position: relative;
   border: 1px solid ${({ theme }) => theme.colors.border};
-  box-shadow: ${({ theme }) => theme.shadows.card};
+  transition: border-color 0.2s ease, transform 0.2s ease;
+
+  &:hover {
+    border-color: ${({ theme }) => theme.colors.accent};
+    transform: translateY(-2px);
+  }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     width: calc(100% - 50px);
-  }
-
-  &::before {
-    content: "";
-    position: absolute;
-    top: 20px;
-    width: 0;
-    height: 0;
-    border: 10px solid transparent;
-    ${({ isLeft, theme }) =>
-      isLeft
-        ? `
-        right: 100%;
-        border-right-color: ${theme.colors.bgCard};
-      `
-        : `
-        left: 100%;
-        border-left-color: ${theme.colors.bgCard};
-      `}
-
-    @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-      right: 100%;
-      left: auto;
-      border-right-color: ${({ theme }) => theme.colors.bgCard};
-      border-left-color: transparent;
-    }
   }
 `;
 
@@ -117,12 +94,13 @@ export const TimelineDot = styled.div`
   position: absolute;
   left: 50%;
   top: 50%;
-  width: 16px;
-  height: 16px;
+  width: 10px;
+  height: 10px;
   background: ${({ theme }) => theme.colors.accent};
   border-radius: 50%;
   transform: translate(-50%, -50%);
-  border: 3px solid ${({ theme }) => theme.colors.bgPrimary};
+  box-shadow: 0 0 0 4px ${({ theme }) => theme.colors.bgSecondary},
+    0 0 0 5px ${({ theme }) => theme.colors.accent}40;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     left: 20px;
@@ -131,40 +109,49 @@ export const TimelineDot = styled.div`
 
 export const JobTitle = styled.h3`
   color: ${({ theme }) => theme.colors.textPrimary};
-  font-size: 1.25rem;
-  margin-bottom: 0.5rem;
+  font-size: 1.0625rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+  letter-spacing: -0.01em;
 `;
 
 export const Company = styled.h4`
   color: ${({ theme }) => theme.colors.accent};
-  font-size: 1rem;
+  font-size: 0.9375rem;
+  font-weight: 500;
   margin-bottom: 0.5rem;
 `;
 
 export const Period = styled.span`
   color: ${({ theme }) => theme.colors.textSecondary};
-  font-size: 0.9rem;
+  font-size: 0.8125rem;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
   margin-bottom: ${({ theme }) => theme.spacing.sm};
   display: block;
+  letter-spacing: 0.02em;
 `;
 
 export const Description = styled.p`
   color: ${({ theme }) => theme.colors.textSecondary};
-  line-height: 1.6;
+  line-height: 1.65;
+  font-size: 0.9rem;
   margin-bottom: ${({ theme }) => theme.spacing.sm};
 `;
 
 export const TechStack = styled.div`
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: 0.4rem;
 `;
 
 export const TechTag = styled.span`
-  background: ${({ theme }) => theme.colors.accent}33;
+  background: transparent;
   color: ${({ theme }) => theme.colors.accent};
-  padding: 0.25rem 0.5rem;
-  border-radius: 12px;
-  font-size: 0.75rem;
+  border: 1px solid ${({ theme }) => theme.colors.accent}40;
+  padding: 0.2rem 0.55rem;
+  border-radius: 4px;
+  font-size: 0.7rem;
   font-weight: 500;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  letter-spacing: 0.02em;
 `;

@@ -10,7 +10,6 @@ import Contact from "./components/sections/Contact/Contact";
 import InteractiveSkills from "./components/sections/Skills/InteractiveSkills";
 import Experience from "./components/sections/Experience/Experience";
 import ThemeToggle from "./components/ThemeToggle/ThemeToggle";
-import { ParticleBackground } from "./components/animation/ParticleBackground";
 import PageTransition from "./components/animation/PageTransition";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { GlobalStyle } from "./App.styles";
@@ -23,7 +22,6 @@ const AppContent: React.FC = () => {
     <StyledThemeProvider theme={currentTheme}>
       <GlobalStyle />
       <ErrorBoundary>
-        <ParticleBackground />
         <PageTransition>
           <Navigation />
           <main>

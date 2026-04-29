@@ -1,4 +1,5 @@
 import { Fragment, useState, useEffect } from "react";
+import { FiMenu, FiX } from "react-icons/fi";
 import {
   NavigationContainer,
   NavLinks,
@@ -115,7 +116,7 @@ const Navigation = () => {
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
             onClick={() => setMobileOpen((v) => !v)}
           >
-            {mobileOpen ? "✖" : "☰"}
+            {mobileOpen ? <FiX /> : <FiMenu />}
           </Hamburger>
         </NavInner>
 

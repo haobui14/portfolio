@@ -5,11 +5,11 @@ export const NavigationContainer = styled.nav`
   top: 0;
   width: 100%;
   background: ${({ theme }) => theme.colors.bgPrimary}cc;
-  backdrop-filter: blur(20px);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
   border-bottom: 1px solid ${({ theme }) => theme.colors.border};
   z-index: 1000;
-  padding: 1rem 0;
-  transition: all 0.3s ease;
+  transition: background 0.3s ease, border-color 0.3s ease;
   display: flex;
   justify-content: center;
 `;
@@ -21,25 +21,31 @@ export const NavInner = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 0 2rem;
+  height: 64px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     padding: 0 1rem;
+    height: 56px;
   }
 `;
 
 export const Logo = styled.a`
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  font-size: 1.5rem;
+  font-size: 1.125rem;
   font-weight: 700;
-  background: ${({ theme }) => theme.gradients.primary};
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  letter-spacing: 0.02em;
+  color: ${({ theme }) => theme.colors.accent};
   text-decoration: none;
-  height: 100%;
-  width: 180px;
-  padding: 10px 0;
+  padding: 0.25rem 0.5rem;
+  border: 1px solid ${({ theme }) => theme.colors.border};
+  border-radius: 6px;
+  transition: ${({ theme }) => theme.transitions.fast};
+
+  &:hover {
+    border-color: ${({ theme }) => theme.colors.accent};
+    background: ${({ theme }) => theme.colors.accent}10;
+  }
 `;
 
 export const PageLogo = styled(Logo)`
@@ -62,12 +68,12 @@ export const NavLinks = styled.ul`
 export const NavLink = styled.a`
   color: ${({ theme }) => theme.colors.textSecondary};
   text-decoration: none;
-  font-size: 20px;
+  font-size: 0.9375rem;
   font-family: "Inter", "Roboto", Arial, sans-serif;
-  font-weight: 400;
+  font-weight: 500;
   position: relative;
-  padding: 0 0 5px 0;
-  transition: color 0.3s ease;
+  padding: 0.5rem 0.25rem;
+  transition: color 0.2s ease;
 
   &:hover,
   &.active {
@@ -77,35 +83,48 @@ export const NavLink = styled.a`
   &::after {
     content: "";
     position: absolute;
-    left: 0;
-    bottom: -5px;
-    width: 0;
-    height: 2px;
-    background: ${({ theme }) => theme.gradients.primary};
-    transition: width 0.3s ease;
+    left: 50%;
+    bottom: -2px;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: ${({ theme }) => theme.colors.accent};
+    transform: translateX(-50%) scale(0);
+    transition: transform 0.2s ease;
   }
 
-  &:hover::after,
   &.active::after {
-    width: 100%;
+    transform: translateX(-50%) scale(1);
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    font-size: 1.5rem;
+    font-weight: 600;
+
+    &::after {
+      bottom: -6px;
+      width: 6px;
+      height: 6px;
+    }
   }
 `;
 
 export const Hamburger = styled.button`
   display: none;
   background: none;
-  border: none;
+  border: 1px solid ${({ theme }) => theme.colors.border};
   color: ${({ theme }) => theme.colors.textPrimary};
-  font-size: 2rem;
+  font-size: 1.25rem;
   cursor: pointer;
   z-index: 1200;
-  padding: 0.5rem;
-  border-radius: 4px;
-  transition: ${({ theme }) => theme.transitions.default};
+  padding: 0.4rem 0.6rem;
+  border-radius: 6px;
+  transition: ${({ theme }) => theme.transitions.fast};
 
   &:hover,
   &:focus {
     color: ${({ theme }) => theme.colors.accent};
+    border-color: ${({ theme }) => theme.colors.accent};
     outline: none;
   }
 
@@ -130,7 +149,8 @@ export const MobileNav = styled.div<{ isOpen?: boolean }>`
   flex-direction: column;
   align-items: center;
   background: ${({ theme }) => theme.colors.bgPrimary}f5;
-  backdrop-filter: blur(20px);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
   opacity: ${({ isOpen }) => (isOpen ? 1 : 0)};
   pointer-events: ${({ isOpen }) => (isOpen ? "auto" : "none")};
   transform: ${({ isOpen }) =>
@@ -143,8 +163,8 @@ export const MobileNav = styled.div<{ isOpen?: boolean }>`
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 3rem;
-    gap: 2.5rem;
+    margin-top: 4rem;
+    gap: 2rem;
     padding-top: 1rem;
     padding-bottom: 1rem;
   }

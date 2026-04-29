@@ -3,38 +3,39 @@ import { motion } from "framer-motion";
 
 export const ToggleButton = styled(motion.button)`
   position: fixed;
-  bottom: 2rem;
-  right: 2rem;
-  width: 56px;
-  height: 56px;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
-  border: none;
-  background: ${({ theme }) => theme.gradients.primary};
-  color: white;
+  border: 1px solid ${({ theme }) => theme.colors.border};
+  background: ${({ theme }) => theme.colors.bgCard};
+  color: ${({ theme }) => theme.colors.accent};
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.5rem;
+  font-size: 1.125rem;
   z-index: 1000;
-  box-shadow: ${({ theme }) => theme.shadows.primary};
-  transition: ${({ theme }) => theme.transitions.default};
+  transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 
   &:hover {
-    transform: scale(1.1);
-    box-shadow: ${({ theme }) => theme.shadows.hover};
+    border-color: ${({ theme }) => theme.colors.accent};
+    background: ${({ theme }) => theme.colors.accent}14;
   }
 
-  &:focus {
-    outline: none;
-    box-shadow: ${({ theme }) => theme.shadows.hover};
+  &:focus-visible {
+    outline: 2px solid ${({ theme }) => theme.colors.accent};
+    outline-offset: 2px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     bottom: 1rem;
     right: 1rem;
-    width: 48px;
-    height: 48px;
-    font-size: 1.25rem;
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
   }
 `;

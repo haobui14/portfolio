@@ -2,56 +2,34 @@ import styled from "styled-components";
 
 export const ContactSection = styled.section`
   padding: ${({ theme }) => theme.spacing.xl} ${({ theme }) => theme.spacing.lg};
-  background: ${({ theme }) => theme.colors.bgSecondary}95;
+  background: ${({ theme }) => theme.colors.bgSecondary};
   border-top: 1px solid ${({ theme }) => theme.colors.border};
-  border-bottom: 1px solid ${({ theme }) => theme.colors.border};
-  will-change: opacity, transform;
-  transform: translateZ(0);
   position: relative;
-  overflow: hidden;
-
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: ${({
-      theme,
-    }) => `radial-gradient(circle at 30% 70%, ${theme.colors.primary}12 0%, transparent 50%),
-                                 radial-gradient(circle at 70% 30%, ${theme.colors.accent}12 0%, transparent 50%)`};
-    pointer-events: none;
-  }
 `;
 
 export const SectionTitle = styled.h2`
-  font-size: ${({ theme }) => theme.typography.fontSizes["3xl"]};
+  font-size: clamp(2rem, 4vw, 2.5rem);
   font-weight: 700;
   text-align: center;
-  margin-bottom: ${({ theme }) => theme.spacing.xl};
-  background: ${({ theme }) => theme.gradients.text};
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  margin-bottom: ${({ theme }) => theme.spacing.md};
+  color: ${({ theme }) => theme.colors.textPrimary};
+  letter-spacing: -0.02em;
   position: relative;
   z-index: 1;
 
   &::after {
     content: "";
-    position: absolute;
-    bottom: -${({ theme }) => theme.spacing.sm};
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60px;
-    height: 3px;
-    background: ${({ theme }) => theme.gradients.primary};
+    display: block;
+    width: 40px;
+    height: 2px;
+    background: ${({ theme }) => theme.colors.accent};
+    margin: ${({ theme }) => theme.spacing.sm} auto 0;
     border-radius: 2px;
   }
 `;
 
 export const ContactContent = styled.div`
-  max-width: 900px;
+  max-width: 640px;
   margin: 0 auto;
   position: relative;
   z-index: 1;
@@ -73,34 +51,35 @@ export const ContactText = styled.p`
 export const ContactInfo = styled.div`
   display: flex;
   justify-content: center;
-  gap: ${({ theme }) => theme.spacing.md};
+  gap: 1rem;
   margin-top: ${({ theme }) => theme.spacing.md};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     flex-direction: column;
-    align-items: center;
+    align-items: stretch;
   }
 `;
 
 export const ContactItem = styled.a`
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: ${({ theme }) => theme.spacing.xs};
-  color: ${({ theme }) => theme.colors.textSecondary};
+  gap: 0.5rem;
+  color: ${({ theme }) => theme.colors.textPrimary};
   text-decoration: none;
-  padding: ${({ theme }) => theme.spacing.sm};
-  border-radius: ${({ theme }) => theme.borderRadius.sm};
-  background: ${({ theme }) => theme.colors.bgCard};
+  padding: 0.75rem 1.25rem;
+  border-radius: 8px;
+  background: transparent;
   border: 1px solid ${({ theme }) => theme.colors.border};
-  box-shadow: ${({ theme }) => theme.shadows.card};
-  transition: ${({ theme }) => theme.transitions.default};
+  font-size: 0.9375rem;
+  font-weight: 500;
+  transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
 
   &:hover,
   &:focus {
     color: ${({ theme }) => theme.colors.accent};
-    transform: translateY(-2px);
     border-color: ${({ theme }) => theme.colors.accent};
+    background: ${({ theme }) => theme.colors.accent}10;
     outline: none;
   }
 
@@ -111,6 +90,6 @@ export const ContactItem = styled.a`
 
   svg {
     display: block;
-    font-size: 1.2em;
+    font-size: 1.1em;
   }
 `;

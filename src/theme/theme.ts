@@ -1,48 +1,48 @@
 const darkTheme = {
   colors: {
-    bgPrimary: "#0a0a0a",
-    bgSecondary: "#1a1a1a",
-    bgCard: "#111111",
-    textPrimary: "#ffffff",
-    textSecondary: "#a3a3a3",
-    accent: "#6366f1",
-    accentHover: "#4f46e5",
-    border: "rgba(255, 255, 255, 0.1)",
-    primary: "#6366f1",
+    bgPrimary: "#0a1410",
+    bgSecondary: "#0f1c17",
+    bgCard: "#0d1813",
+    textPrimary: "#e8efe9",
+    textSecondary: "#8ba99a",
+    accent: "#10b981",
+    accentHover: "#059669",
+    border: "rgba(16, 185, 129, 0.15)",
+    primary: "#10b981",
   },
   gradients: {
-    primary: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
-    primaryHover: "linear-gradient(135deg, #5a6fd6 0%, #6a4399 100%)",
-    text: "linear-gradient(135deg, #ffffff 0%, #a3a3a3 100%)",
+    primary: "linear-gradient(135deg, #10b981 0%, #047857 100%)",
+    primaryHover: "linear-gradient(135deg, #059669 0%, #065f46 100%)",
+    text: "linear-gradient(135deg, #ffffff 0%, #8ba99a 100%)",
   },
   shadows: {
-    primary: "0 20px 25px -5px rgba(0, 0, 0, 0.4)",
-    hover: "0 25px 35px -5px rgba(99, 102, 241, 0.4)",
-    card: "0 4px 6px -1px rgba(0, 0, 0, 0.1)",
+    primary: "0 20px 40px -10px rgba(0, 0, 0, 0.5)",
+    hover: "0 24px 48px -12px rgba(16, 185, 129, 0.35)",
+    card: "0 1px 2px rgba(0, 0, 0, 0.4), 0 8px 24px -8px rgba(0, 0, 0, 0.3)",
   },
 };
 
 const lightTheme = {
   colors: {
-    bgPrimary: "#ffffff",
-    bgSecondary: "#f8fafc",
+    bgPrimary: "#fafdfb",
+    bgSecondary: "#f0f5f2",
     bgCard: "#ffffff",
-    textPrimary: "#0f172a",
-    textSecondary: "#475569",
-    accent: "#3b82f6",
-    accentHover: "#2563eb",
-    border: "rgba(15, 23, 42, 0.12)",
-    primary: "#3b82f6",
+    textPrimary: "#0a1f17",
+    textSecondary: "#3d5a4d",
+    accent: "#047857",
+    accentHover: "#065f46",
+    border: "rgba(4, 120, 87, 0.15)",
+    primary: "#047857",
   },
   gradients: {
-    primary: "linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%)",
-    primaryHover: "linear-gradient(135deg, #2563eb 0%, #7c3aed 100%)",
-    text: "linear-gradient(135deg, #0f172a 0%, #475569 100%)",
+    primary: "linear-gradient(135deg, #10b981 0%, #047857 100%)",
+    primaryHover: "linear-gradient(135deg, #059669 0%, #065f46 100%)",
+    text: "linear-gradient(135deg, #0a1f17 0%, #3d5a4d 100%)",
   },
   shadows: {
-    primary: "0 20px 25px -5px rgba(15, 23, 42, 0.1)",
-    hover: "0 25px 35px -5px rgba(59, 130, 246, 0.25)",
-    card: "0 4px 6px -1px rgba(0, 0, 0, 0.1)",
+    primary: "0 20px 40px -10px rgba(10, 31, 23, 0.12)",
+    hover: "0 24px 48px -12px rgba(4, 120, 87, 0.25)",
+    card: "0 1px 2px rgba(10, 31, 23, 0.04), 0 8px 24px -8px rgba(10, 31, 23, 0.08)",
   },
 };
 
@@ -60,8 +60,8 @@ const commonTheme = {
     xl: "5rem",
   },
   borderRadius: {
-    sm: "15px",
-    md: "20px",
+    sm: "8px",
+    md: "12px",
     lg: "50px",
   },
   typography: {
@@ -99,6 +99,6 @@ export const getTheme = (isDark: boolean) => ({
   ...commonTheme,
 });
 
-export const theme = getTheme(true); // Default dark theme
+export const theme = getTheme(true);
 
 export type Theme = typeof theme;

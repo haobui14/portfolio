@@ -26,7 +26,7 @@ const About: React.FC = () => {
               viewport={{ once: true }}
             >
               I'm a passionate Software Engineer with{" "}
-              <strong>3+ years of experience</strong> building scalable web
+              <strong>4+ years of experience</strong> building scalable web
               applications and enterprise solutions. Currently working as a
               Software Engineer at <strong>AM Specialty Insurance Group</strong>{" "}
               since March 2025, I specialize in full-stack development using
@@ -55,16 +55,16 @@ const About: React.FC = () => {
               transition={{ duration: 0.6, delay: 0.6 }}
               viewport={{ once: true }}
             >
-              I'm actively <strong>transitioning into Data Engineering</strong>{" "}
-              to leverage my software development foundation in building robust
-              data pipelines, ETL processes, and analytics solutions. My goal is
-              to combine proven full-stack expertise with advanced data
-              engineering skills, focusing on{" "}
-              <strong>
-                Python, Apache Spark, Kafka, and cloud data platforms
-              </strong>{" "}
-              to create efficient workflows that transform raw data into
-              actionable business intelligence.
+              I treat <strong>AI as a force multiplier</strong> in my daily
+              work. I build internal AI-assisted tools and{" "}
+              <strong>custom MCP servers</strong> that connect domain data and
+              workflows directly to LLMs &mdash; automating repetitive tasks,
+              accelerating code reviews, and surfacing insight from data that
+              used to require manual digging. I lean on{" "}
+              <strong>Claude, Gemini, and local models via Ollama</strong> for
+              prototyping, refactoring, and writing tests, then ship the parts
+              that prove their value back into the team's workflow. The goal is
+              simple: higher-quality work, fewer mistakes, faster turnaround.
             </motion.p>
           </AboutText>
         </AboutContent>

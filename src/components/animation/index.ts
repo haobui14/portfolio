@@ -1,2 +1,1 @@
-export { ParticleBackground } from './ParticleBackground';
-export type { ParticleBackgroundProps } from './ParticleBackground';
+export { default as PageTransition } from './PageTransition';

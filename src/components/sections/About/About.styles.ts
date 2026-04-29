@@ -2,56 +2,35 @@ import styled from "styled-components";
 
 export const AboutSection = styled.section`
   padding: ${({ theme }) => theme.spacing.xl} ${({ theme }) => theme.spacing.lg};
-  background: ${({ theme }) => theme.colors.bgSecondary}95;
+  background: ${({ theme }) => theme.colors.bgSecondary};
   border-top: 1px solid ${({ theme }) => theme.colors.border};
   border-bottom: 1px solid ${({ theme }) => theme.colors.border};
-  will-change: opacity, transform;
-  transform: translateZ(0);
   position: relative;
-  overflow: hidden;
-
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: ${({
-      theme,
-    }) => `radial-gradient(circle at 30% 70%, ${theme.colors.primary}12 0%, transparent 50%),
-                                 radial-gradient(circle at 70% 30%, ${theme.colors.accent}12 0%, transparent 50%)`};
-    pointer-events: none;
-  }
 `;
 
 export const SectionTitle = styled.h2`
-  font-size: ${({ theme }) => theme.typography.fontSizes["3xl"]};
+  font-size: clamp(2rem, 4vw, 2.5rem);
   font-weight: 700;
   text-align: center;
-  margin-bottom: ${({ theme }) => theme.spacing.xl};
-  background: ${({ theme }) => theme.gradients.text};
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  margin-bottom: ${({ theme }) => theme.spacing.lg};
+  color: ${({ theme }) => theme.colors.textPrimary};
+  letter-spacing: -0.02em;
   position: relative;
   z-index: 1;
 
   &::after {
     content: "";
-    position: absolute;
-    bottom: -${({ theme }) => theme.spacing.sm};
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60px;
-    height: 3px;
-    background: ${({ theme }) => theme.gradients.primary};
+    display: block;
+    width: 40px;
+    height: 2px;
+    background: ${({ theme }) => theme.colors.accent};
+    margin: ${({ theme }) => theme.spacing.sm} auto 0;
     border-radius: 2px;
   }
 `;
 
 export const AboutContent = styled.div`
-  max-width: 900px;
+  max-width: 760px;
   margin: 0 auto;
   position: relative;
   z-index: 1;
@@ -59,25 +38,30 @@ export const AboutContent = styled.div`
 
 export const AboutText = styled.div`
   p {
-    margin-bottom: ${({ theme }) => theme.spacing.lg};
-    line-height: 1.7;
+    margin-bottom: ${({ theme }) => theme.spacing.md};
+    line-height: 1.75;
     color: ${({ theme }) => theme.colors.textSecondary};
     font-size: ${({ theme }) => theme.typography.fontSizes.lg};
-    text-align: center;
+    text-align: left;
     font-weight: 400;
 
     strong {
-      color: ${({ theme }) => theme.colors.primary};
+      color: ${({ theme }) => theme.colors.textPrimary};
       font-weight: 600;
     }
 
     &:last-child {
       margin-bottom: 0;
+      padding-left: 1.25rem;
+      border-left: 2px solid ${({ theme }) => theme.colors.accent};
+
+      strong {
+        color: ${({ theme }) => theme.colors.accent};
+      }
     }
 
     @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
       font-size: ${({ theme }) => theme.typography.fontSizes.base};
-      text-align: left;
     }
   }
 `;
@@ -99,8 +83,8 @@ export const Skill = styled.div`
   box-shadow: ${({ theme }) => theme.shadows.card};
 
   &:hover {
-    transform: translateY(-5px);
-    box-shadow: ${({ theme }) => theme.shadows.hover};
+    transform: translateY(-2px);
+    border-color: ${({ theme }) => theme.colors.accent};
   }
 
   div {
